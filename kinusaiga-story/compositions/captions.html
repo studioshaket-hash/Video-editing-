@@ -1,0 +1,103 @@
+<template>
+  <style>
+    @font-face { font-family: "Rubik"; font-weight: 300 900; font-display: block;
+      src: url("assets/fonts/rubik-hebrew.woff2") format("woff2");
+      unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+    @font-face { font-family: "Rubik"; font-weight: 300 900; font-display: block;
+      src: url("assets/fonts/rubik-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+2013-2014, U+2018-201E, U+2026; }
+    #root { position: absolute; inset: 0; }
+    /* Bottom-anchored on the chest: clear of the face and of the Story reply bar. */
+    .cap {
+      position: absolute; left: 0; right: 0; bottom: 400px; padding: 0 90px;
+      text-align: center; direction: rtl; unicode-bidi: isolate;
+      font-family: "Rubik", sans-serif; font-weight: 800; line-height: 1.12;
+      color: #fff; opacity: 0; visibility: hidden; overflow: visible; text-wrap: balance;
+    }
+    .cap .txt {
+      -webkit-text-stroke: 14px #000; paint-order: stroke fill;
+      text-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+    }
+    .cap.ai { color: #a8e9ff; }
+    .cap .hl { color: #ffd60a; }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="c01" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">בדיפס,</span></div>
+    <div id="c02" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">בדיפס,</span></div>
+    <div id="c03" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">זה גרוע.</span></div>
+    <div id="c04" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">היא נקראת קינוסייגה.</span></div>
+    <div id="c05" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">עכשיו, אם אני אגיד לאנשים</span></div>
+    <div id="c06" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">קינוסייגה בארץ,</span></div>
+    <div id="c07" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">הם לא יבינו מה אני רוצה.</span></div>
+    <div id="c08" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">מדובר באמנות</span></div>
+    <div id="c09" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">שהיא נראית קצת כמו פסיפס,</span></div>
+    <div id="c10" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">אבל עושים את זה עם טקסטיל.</span></div>
+    <div id="c11" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">אבל עושים את זה עם טקסטיל.</span></div>
+    <div id="c12" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt">כיוון אחד זה</span></div>
+    <div id="c13" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt"><span class="hl">פסיפאבריק</span></span></div>
+    <div id="c14" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">מעניין.</span></div>
+    <div id="c15" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">זה גרוע אבל מעניין.</span></div>
+    <div id="c16" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt">משהו יותר קליט,</span></div>
+    <div id="c17" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt">כמו <span class="hl">חיבוק</span>.</span></div>
+    <div id="c18" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt">אולי <span class="hl">טקסיפס</span>.</span></div>
+    <div id="c19" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">טקסיפס.</span></div>
+    <div id="c20" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">אני צריך את עזרתך פה,</span></div>
+    <div id="c21" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">אני לא עושה שום דבר לבד</span></div>
+    <div id="c22" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">כבר שנתיים!</span></div>
+    <div id="c23" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">תיכנס מתחת לאלונקה,</span></div>
+    <div id="c24" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">תהיה איתי.</span></div>
+    <div id="c25" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt">אני איתך.</span></div>
+    <div id="c26" class="cap ai" dir="rtl" style="font-size:84px"><span class="txt">בוא נחבר את המילים האלה</span></div>
+    <div id="c27" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt">חזק יותר.</span></div>
+    <div id="c28" class="cap ai" dir="rtl" style="font-size:84px"><span class="txt">מה דעתך על <span class="hl">פסיבד</span>?</span></div>
+    <div id="c29" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt">אז אולי נלך על</span></div>
+    <div id="c30" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt"><span class="hl">פסיפס בד</span>.</span></div>
+    <div id="c31" class="cap me" dir="rtl" style="font-size:84px"><span class="txt">שאמרת את מה שאני הצעתי,</span></div>
+    <div id="c32" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">כל הכבוד.</span></div>
+    <div id="c33" class="cap ai" dir="rtl" style="font-size:94px"><span class="txt">בשמחה.</span></div>
+    <div id="c34" class="cap me" dir="rtl" style="font-size:94px"><span class="txt">אתה מפוטר.</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // Plain subtitles: hard on, hard off, no animation.
+    function show(sel, start, end) {
+      tl.set(sel, { opacity: 1, visibility: "visible" }, start);
+      tl.set(sel, { opacity: 0, visibility: "hidden" }, end);
+    }
+    show("#c01", 0.06, 0.62);
+    show("#c02", 0.98, 1.52);
+    show("#c03", 1.62, 2.367);
+    show("#c04", 2.427, 3.727);
+    show("#c05", 3.847, 5.067);
+    show("#c06", 5.067, 6.933);
+    show("#c07", 7.013, 8.333);
+    show("#c08", 8.493, 9.613);
+    show("#c09", 9.633, 11.053);
+    show("#c10", 11.113, 11.5);
+    show("#c11", 11.5, 12.57);
+    show("#c12", 12.673, 13.613);
+    show("#c13", 13.613, 14.9);
+    show("#c14", 15.08, 15.68);
+    show("#c15", 15.72, 17.133);
+    show("#c16", 17.163, 18.363);
+    show("#c17", 18.403, 19.3);
+    show("#c18", 20.113, 21.093);
+    show("#c19", 21.71, 22.133);
+    show("#c20", 22.173, 23.873);
+    show("#c21", 23.913, 24.913);
+    show("#c22", 24.913, 25.753);
+    show("#c23", 25.827, 27.107);
+    show("#c24", 27.127, 27.667);
+    show("#c25", 30.12, 30.72);
+    show("#c26", 30.82, 32.48);
+    show("#c27", 32.48, 33.22);
+    show("#c28", 33.32, 34.76);
+    show("#c29", 34.827, 35.867);
+    show("#c30", 35.887, 36.787);
+    show("#c31", 36.86, 38.7);
+    show("#c32", 38.72, 39.36);
+    show("#c33", 39.667, 40.267);
+    show("#c34", 42.367, 43.567);
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

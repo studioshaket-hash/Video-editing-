@@ -1,0 +1,45 @@
+<template>
+  <style>
+    @font-face { font-family: "Rubik"; font-weight: 300 900; font-display: block;
+      src: url("assets/fonts/rubik-hebrew.woff2") format("woff2");
+      unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+    @font-face { font-family: "Rubik"; font-weight: 300 900; font-display: block;
+      src: url("assets/fonts/rubik-latin.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+2013-2014, U+2018-201E, U+2026; }
+    #root { position: absolute; inset: 0; }
+    /* Sits in the open ceiling above the head, below the Story progress bar. */
+    .nm {
+      position: absolute; left: 0; right: 0; top: 300px; padding: 0 70px;
+      text-align: center; direction: rtl; unicode-bidi: isolate;
+      opacity: 0; visibility: hidden; overflow: visible;
+    }
+    .nm .word {
+      display: inline-block; font-family: "Rubik", sans-serif; font-weight: 900;
+      font-size: 168px; line-height: 1; color: #ffd60a;
+      -webkit-text-stroke: 18px #000; paint-order: stroke fill;
+      text-shadow: 0 8px 26px rgba(0, 0, 0, 0.4);
+    }
+  </style>
+  <div id="root" data-composition-id="names" data-width="1080" data-height="1920">
+    <div id="n-s06" class="nm" dir="rtl"><span class="word">פסיפאבריק</span></div>
+    <div id="n-s08" class="nm" dir="rtl"><span class="word">חיבוק</span></div>
+    <div id="n-s10" class="nm" dir="rtl"><span class="word">טקסיפס</span></div>
+    <div id="n-s14b" class="nm" dir="rtl"><span class="word">פסיבד</span></div>
+    <div id="n-s15" class="nm" dir="rtl"><span class="word">פסיפס בד</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // One quick pop on the spoken name, then dead still, then a hard cut out.
+    function pop(sel, start, end) {
+      tl.set(sel, { opacity: 1, visibility: "visible" }, start);
+      tl.fromTo(sel + " .word", { scale: 1.35 }, { scale: 1, duration: 0.16, ease: "expo.out" }, start);
+      tl.set(sel, { opacity: 0, visibility: "hidden" }, end);
+    }
+    pop("#n-s06", 13.613, 14.913);
+    pop("#n-s08", 18.703, 20.053);
+    pop("#n-s10", 20.473, 21.093);
+    pop("#n-s14b", 34.2, 34.76);
+    pop("#n-s15", 35.887, 36.787);
+    window.__timelines["names"] = tl;
+  </script>
+</template>
