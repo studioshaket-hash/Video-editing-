@@ -1,0 +1,55 @@
+<template>
+  <style>
+    @font-face { font-family: "Heebo"; font-weight: 500; src: url("assets/fonts/heebo-hebrew-500.woff2") format("woff2"); unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+    @font-face { font-family: "Heebo"; font-weight: 500; src: url("assets/fonts/heebo-latin-500.woff2") format("woff2"); unicode-range: U+0000-00FF; }
+    @font-face { font-family: "Heebo"; font-weight: 700; src: url("assets/fonts/heebo-hebrew-700.woff2") format("woff2"); unicode-range: U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F; }
+    @font-face { font-family: "Heebo"; font-weight: 700; src: url("assets/fonts/heebo-latin-700.woff2") format("woff2"); unicode-range: U+0000-00FF; }
+    #root { position: absolute; inset: 0; }
+    .capwrap { position: absolute; left: 0; top: 1176px; width: 1080px; height: 140px; display: flex; align-items: center; justify-content: center; }
+    .cap { max-width: 820px; text-align: center; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 56px; line-height: 1.22; color: #fff; unicode-bidi: plaintext; }
+    .cap span { display: inline; padding: 4px 18px; background: rgba(0, 0, 0, 0.38); border-radius: 10px; box-decoration-break: clone; -webkit-box-decoration-break: clone; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45); }
+    .cap.whisper { font-weight: 500; font-size: 50px; color: rgba(255, 255, 255, 0.86); }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1080" data-height="1920">
+    <div id="cap01" class="clip capwrap" data-start="0.12" data-duration="1.16"><p class="cap" dir="rtl" lang="he"><span id="cap01-t">זה עבודת יד?</span></p></div>
+    <div id="cap02" class="clip capwrap" data-start="2.00" data-duration="0.84"><p class="cap" dir="rtl" lang="he"><span id="cap02-t">זה עבודת יד?</span></p></div>
+    <div id="cap03" class="clip capwrap" data-start="3.00" data-duration="1.80"><p class="cap" dir="rtl" lang="he"><span id="cap03-t">זה עבודת יד?<br />עשית את זה בעצמך?</span></p></div>
+    <div id="cap04" class="clip capwrap" data-start="5.04" data-duration="0.80"><p class="cap" dir="rtl" lang="he"><span id="cap04-t">זה עבודת יד?</span></p></div>
+    <div id="cap05" class="clip capwrap" data-start="6.56" data-duration="0.80"><p class="cap" dir="rtl" lang="he"><span id="cap05-t">עבודת יד?</span></p></div>
+    <div id="cap06" class="clip capwrap" data-start="9.04" data-duration="1.16"><p class="cap" dir="rtl" lang="he"><span id="cap06-t">סלח לי, זה עבודת יד?</span></p></div>
+    <div id="cap07" class="clip capwrap" data-start="10.56" data-duration="1.28"><p class="cap" dir="ltr" lang="en"><span id="cap07-t">Scusi, this handjob?</span></p></div>
+    <div id="cap08" class="clip capwrap" data-start="16.40" data-duration="1.52"><p class="cap" dir="rtl" lang="he"><span id="cap08-t">אני לא יוצא מפה בלי תשובות.</span></p></div>
+    <div id="cap09" class="clip capwrap" data-start="24.60" data-duration="1.40" style="top:960px"><p class="cap" dir="rtl" lang="he"><span id="cap09-t">מה אתה מנסה לומר לי?</span></p></div>
+    <div id="cap10" class="clip capwrap" data-start="26.16" data-duration="2.40" style="top:960px"><p class="cap whisper" dir="rtl" lang="he"><span id="cap10-t">מה אתה מנסה לומר לי?</span></p></div>
+    <div id="cap11" class="clip capwrap" data-start="29.60" data-duration="1.68"><p class="cap" dir="rtl" lang="he"><span id="cap11-t">מה אתם מנסים לומר לי?</span></p></div>
+    <div id="cap12" class="clip capwrap" data-start="40.36" data-duration="3.56"><p class="cap" dir="rtl" lang="he"><span id="cap12-t">הם בכלל לא רוצים<br />שידרכו עליהם.</span></p></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#cap01-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 0.12);
+    tl.to("#cap01-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 1.20);
+    tl.fromTo("#cap02-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 2.00);
+    tl.to("#cap02-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 2.76);
+    tl.fromTo("#cap03-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 3.00);
+    tl.to("#cap03-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 4.72);
+    tl.fromTo("#cap04-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 5.04);
+    tl.to("#cap04-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 5.76);
+    tl.fromTo("#cap05-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 6.56);
+    tl.to("#cap05-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 7.28);
+    tl.fromTo("#cap06-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 9.04);
+    tl.to("#cap06-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 10.12);
+    tl.fromTo("#cap07-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 10.56);
+    tl.to("#cap07-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 11.76);
+    tl.fromTo("#cap08-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 16.40);
+    tl.to("#cap08-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 17.84);
+    tl.fromTo("#cap09-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 24.60);
+    tl.to("#cap09-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 25.92);
+    tl.fromTo("#cap10-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 26.16);
+    tl.to("#cap10-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 28.48);
+    tl.fromTo("#cap11-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 29.60);
+    tl.to("#cap11-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 31.20);
+    tl.fromTo("#cap12-t", { opacity: 0 }, { opacity: 1, duration: 0.08, ease: "power2.out" }, 40.36);
+    tl.to("#cap12-t", { opacity: 0, duration: 0.08, ease: "power2.in" }, 43.84);
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

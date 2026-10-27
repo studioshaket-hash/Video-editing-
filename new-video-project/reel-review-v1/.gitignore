@@ -1,0 +1,10 @@
+assets/media/
+*.mp4
+*.mov
+*.MOV
+*.wav
+renders/
+output/
+snapshots/
+.hyperframes/
+node_modules/
