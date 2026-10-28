@@ -1,0 +1,16 @@
+assets/media/
+*.mp4
+*.mov
+*.MOV
+*.wav
+renders/
+output/
+snapshots/
+.hyperframes/
+node_modules/
+audio/stems/
+audio/src/
+audio/score/*.wav
+audio/score/*.mid
+assets/stems/
+__pycache__/
