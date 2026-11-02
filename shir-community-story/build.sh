@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Builds the 9:16 story: trims the source, adds punch-in zooms, overlays the animated
+# Builds the 9:16 story: trims the source, adds punch-in zooms, lifts the frame 260px
+# (empty ceiling on top; the bottom fifth is the brand banner for the link sticker), overlays the animated
 # captions and normalizes loudness for Instagram.
 #   ./build.sh <source.mp4> [out.mp4]
 set -euo pipefail
@@ -21,7 +22,8 @@ Z="$Z+0.10*between($s,48.17,48.80)"
 ffmpeg -y -ss $START -t $DUR -i "$SRC" -framerate 30 -i "$FRAMES/f%05d.png" \
   -filter_complex "\
 [0:v]fps=30,scale=w='trunc(1080*($Z)/2)*2':h=-2:eval=frame:flags=lanczos,\
-crop=1080:1920:x='(iw-1080)/2':y='(ih-1920)*0.6',setsar=1,\
+crop=1080:1920:x='(iw-1080)/2':y='(ih-1920)*0.6',\
+crop=1080:1660:0:260,pad=1080:1920:0:0:color=0x19a9ab,setsar=1,\
 eq=saturation=1.08:contrast=1.03[v];\
 [v][1:v]overlay=0:0:shortest=1,format=yuv420p[out];\
 [0:a]loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[a]" \

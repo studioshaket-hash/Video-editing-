@@ -34,13 +34,13 @@ window.CHUNKS = [
   { words: [["הרבה,", 42.01], ["הרבה,", 42.91], ["הרבה", 43.79]], style: "stack" },
   { words: [["לפני", 44.47], ["כולם!", 45.29, "k"]], emoji: "🏃" },
   { words: [["אתם", 45.61], ["תוכלו", 46.35], ["להיות", 46.67], ["הקוּלים", 46.83, "k"]], emoji: "😎" },
-  { words: [["שהביאו", 47.51], ["את", 48.05], ["הקוד", 48.17, "k"], ["קופון", 48.47, "k"]], emoji: "🎟️" },
+  { words: [["שהביאו", 47.51], ["את", 48.05]] },
+  { words: [["הקוד", 48.17, "k"], ["קופון", 48.47, "k"]], emoji: "🎟️" },
   { words: [["שאף", 48.81], ["אחד", 49.53], ["לא", 49.81], ["הצליח", 49.99], ["להשיג", 50.43]] },
   { words: [["פה", 51.03], ["בקישור", 51.87, "k"]], emoji: "👇", end: 53.0 },
 ];
 
-// Windows where the "join via the link" callout shows (source seconds). It sits in the
-// empty ceiling area at the top; place the real IG link sticker just under its hand.
+// Windows where the bottom banner pulses to point at the link (source seconds).
 window.LINK_CALLOUTS = [
   [28.87, 34.2],
   [48.81, 53.0],

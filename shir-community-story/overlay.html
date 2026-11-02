@@ -17,7 +17,7 @@
 
   /* Caption block: bottom-anchored over the chest, clear of the face and of IG's bottom UI */
   #cap {
-    position: absolute; left: 70px; right: 70px; bottom: 250px;
+    position: absolute; left: 70px; right: 70px; bottom: 420px;
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
     gap: 6px 18px; direction: rtl; text-align: center;
     transform-origin: 50% 100%;
@@ -52,21 +52,22 @@
     opacity: 0;
   }
 
-  /* "Join through the link" callout. The real IG link sticker goes in the zone under the hand. */
-  #link { position: absolute; left: 0; right: 0; top: 205px; display: flex; flex-direction: column; align-items: center; opacity: 0; }
-  #link .pill {
-    background: #fff; color: var(--turq); font-weight: 900; font-size: 56px;
-    padding: 12px 38px 16px; border-radius: 999px; box-shadow: 0 8px 0 rgba(0,0,0,.25);
-    white-space: nowrap;
+  /* Empty brand banner over the bottom fifth: the clickable IG link sticker goes here.
+     During the "link" lines it gives a soft pulse to draw the eye. */
+  #banner {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 384px;
+    background: var(--turq);
+    border-radius: 48px 48px 0 0;
+    box-shadow: 0 -10px 0 rgba(0,0,0,.18);
   }
-  #link .hand { font-family: "Noto Color Emoji"; font-size: 84px; margin-top: 6px; filter: drop-shadow(0 6px 0 rgba(0,0,0,.25)); }
+  #banner .glow { position: absolute; inset: 0; border-radius: inherit; background: #fff; opacity: 0; }
 </style>
 </head>
 <body>
 <div id="stage">
   <div id="emoji"></div>
   <div id="cap"></div>
-  <div id="link"><div class="pill">הצטרפו לקהילה בקישור</div><div class="hand">👇</div></div>
+  <div id="banner"><div class="glow"></div></div>
 </div>
 <script src="captions.js"></script>
 <script>
@@ -84,7 +85,7 @@
 
   const cap = document.getElementById("cap");
   const emo = document.getElementById("emoji");
-  const link = document.getElementById("link");
+  const glow = document.querySelector("#banner .glow");
   let built = -1;
 
   function build(i) {
@@ -149,13 +150,10 @@
       } else emo.style.opacity = 0;
     }
 
-    // Link callout
-    let lo = 0, la = 0;
-    for (const [a, b] of LINK_CALLOUTS) if (t >= a && t < b) { la = t - a; lo = Math.min(clamp(la / 0.25), clamp((b - t) / 0.25)); }
-    link.style.opacity = lo;
-    const bounce = Math.abs(Math.sin(t * Math.PI * 1.6)) * 18;
-    link.style.transform = `scale(${0.8 + 0.2 * easeOutBack(clamp(la / 0.35))})`;
-    link.querySelector(".hand").style.transform = `translateY(${bounce}px)`;
+    // Banner pulse while the link is mentioned
+    let pulse = 0;
+    for (const [a, b] of LINK_CALLOUTS) if (t >= a && t < b) pulse = (0.5 - 0.5 * Math.cos((t - a) * Math.PI * 2 * 1.2)) * 0.22;
+    glow.style.opacity = pulse;
   };
 
   const q = new URLSearchParams(location.search);
