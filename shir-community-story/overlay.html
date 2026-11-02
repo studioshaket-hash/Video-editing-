@@ -17,7 +17,7 @@
 
   /* Caption block: bottom-anchored over the chest, clear of the face and of IG's bottom UI */
   #cap {
-    position: absolute; left: 70px; right: 70px; bottom: 470px;
+    position: absolute; left: 70px; right: 70px; bottom: 250px;
     display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
     gap: 6px 18px; direction: rtl; text-align: center;
     transform-origin: 50% 100%;
@@ -37,19 +37,23 @@
     background: var(--turq); color: #fff; -webkit-text-stroke: 0; text-shadow: none;
     padding: 4px 26px 10px; box-shadow: 0 10px 0 rgba(0,0,0,.25);
   }
-  #cap.punch .w { font-size: 132px; }
-  #cap.punch .w.key { font-size: 140px; }
-  #cap.stack { flex-direction: column; gap: 0; }
+  #cap.punch .w { font-size: 100px; }
+  #cap.punch .w.key { font-size: 108px; }
+  #cap.stack { gap: 0 14px; align-items: baseline; }
+  #cap.stack .w:nth-child(1) { font-size: 80px; }
+  #cap.stack .w:nth-child(2) { font-size: 98px; }
+  #cap.stack .w:nth-child(3) { font-size: 120px; }
 
+  /* Emoji sticker sits inline at the end of the caption line, so it never lands on the face */
   #emoji {
-    position: absolute; font-size: 150px; line-height: 1;
+    display: inline-block; font-size: 112px; line-height: 1; margin-inline-start: 4px;
     font-family: "Noto Color Emoji", sans-serif;
     filter: drop-shadow(0 8px 0 rgba(0,0,0,.25));
     opacity: 0;
   }
 
   /* "Join through the link" callout. The real IG link sticker goes in the zone under the hand. */
-  #link { position: absolute; left: 0; right: 0; top: 1500px; display: flex; flex-direction: column; align-items: center; opacity: 0; }
+  #link { position: absolute; left: 0; right: 0; top: 205px; display: flex; flex-direction: column; align-items: center; opacity: 0; }
   #link .pill {
     background: #fff; color: var(--turq); font-weight: 900; font-size: 56px;
     padding: 12px 38px 16px; border-radius: 999px; box-shadow: 0 8px 0 rgba(0,0,0,.25);
@@ -98,6 +102,8 @@
       cap.appendChild(s);
     });
     emo.textContent = c.emoji || "";
+    emo.style.display = c.emoji ? "inline-block" : "none";
+    cap.appendChild(emo); // after the words = left end of the RTL line
   }
 
   window.renderAt = function (t) {
@@ -124,7 +130,6 @@
           const p = clamp(wa / 0.2);
           sc = 0.55 + 0.45 * easeOutBack(p);
         }
-        if (c.style === "stack") sc *= 1 + j * 0.28;
         if (j === activeIdx) sc *= 1.06;
         let rot = 0;
         if (c.style === "punch") rot = -3;
@@ -139,11 +144,6 @@
         const ea = age - 0.1;
         const p = clamp(ea / 0.3);
         const sc = ea < 0 ? 0 : easeOutBack(p);
-        const capBox = cap.getBoundingClientRect();
-        const ex = (i % 2 ? 90 : 840);
-        const ey = capBox.top - 165;
-        emo.style.left = ex + "px";
-        emo.style.top = ey + "px";
         emo.style.opacity = ea < 0 ? 0 : 1;
         emo.style.transform = `scale(${sc}) rotate(${Math.sin(t * 5) * 8 + (i % 2 ? -10 : 10)}deg)`;
       } else emo.style.opacity = 0;

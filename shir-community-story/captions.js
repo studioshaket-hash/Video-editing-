@@ -39,7 +39,8 @@ window.CHUNKS = [
   { words: [["פה", 51.03], ["בקישור", 51.87, "k"]], emoji: "👇", end: 53.0 },
 ];
 
-// Windows where the "join via the link" callout shows (source seconds).
+// Windows where the "join via the link" callout shows (source seconds). It sits in the
+// empty ceiling area at the top; place the real IG link sticker just under its hand.
 window.LINK_CALLOUTS = [
   [28.87, 34.2],
   [48.81, 53.0],
